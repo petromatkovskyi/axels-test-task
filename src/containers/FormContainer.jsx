@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, Button, Container, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import ShippingInfo from '../components/ShippingInfo';
+import BillingInfo from '../components/BillingInfo';
 
 const StyledBreadcrumb = styled(Breadcrumb.Item)`
   &:not(:first-child):before {
@@ -20,7 +21,8 @@ export default function FormContainer() {
         </Breadcrumb>
 
         <h3>Shipping Info</h3>
-        <ShippingInfo />
+        {/* <ShippingInfo /> */}
+        <BillingInfo />
         <Button>Continue</Button>
       </Container>
 
