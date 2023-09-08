@@ -3,6 +3,7 @@ import { Breadcrumb, Button, Container, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import ShippingInfo from '../components/ShippingInfo';
 import BillingInfo from '../components/BillingInfo';
+import Payment from '../components/Payment';
 
 const StyledBreadcrumb = styled(Breadcrumb.Item)`
   &:not(:first-child):before {
@@ -22,7 +23,8 @@ export default function FormContainer() {
 
         <h3>Shipping Info</h3>
         {/* <ShippingInfo /> */}
-        <BillingInfo />
+        {/* <BillingInfo /> */}
+        <Payment />
         <Button>Continue</Button>
       </Container>
 
