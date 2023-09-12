@@ -21,11 +21,9 @@ export default function FormContainer() {
           <StyledBreadcrumb href="#">Payment</StyledBreadcrumb>
         </Breadcrumb>
 
-        <h3>Shipping Info</h3>
-        {/* <ShippingInfo /> */}
+        <ShippingInfo />
         {/* <BillingInfo /> */}
-        <Payment />
-        <Button>Continue</Button>
+        {/* <Payment /> */}
       </Container>
 
       <Container>Order Summary</Container>

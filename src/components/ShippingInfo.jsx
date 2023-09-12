@@ -1,28 +1,58 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Col, Form, Row, Button } from 'react-bootstrap';
+import StyledFormControl from './StyledFormControl';
+import StyledFormFeedback from './StyledFormFeedback';
 
-export default function ShippingInfo() {
+export default function ShippingInfo({ onNextStep }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <Form className="d-flex flex-column">
-      <Form.Group className="d-flex flex-row flex-wrap row-gap-2 mb-3">
-        <Form.Label>Recipient</Form.Label>
-        <Form.Control className="flex-1" type="text" placeholder="Full Name" />
-        <Form.Control className="w-50" type="tel" placeholder="Daytime Phone" />
-        <Form.Text className="w-50 ps-1">For delivery questions only</Form.Text>
-      </Form.Group>
+    <>
+      <h3 className="text-primary">Shipping Info</h3>
+      <Form className="row mb-3 gap-4" onSubmit={handleSubmit}>
+        <Form.Group className="position-relative p-0">
+          <Form.Label>Recipient</Form.Label>
+          <StyledFormControl type="text" placeholder="Full Name" isInvalid={true} />
+          <StyledFormFeedback type="invalid" tooltip>
+            Please enter recipient full name
+          </StyledFormFeedback>
+        </Form.Group>
 
-      <Form.Group className="d-flex flex-row flex-wrap gap-2 mb-3">
-        <Form.Label>Address</Form.Label>
-        <Form.Control type="text" placeholder="Street Address" />
-        <Form.Control type="tel" placeholder="Apt, Suite, Bldg, Gate Code,. (optional)" />
-        <Form.Control type="tel" placeholder="City" />
-        <Form.Select className="w-50" placeholder="Country">
-          <option>Some</option>
-          <option>Few</option>
-          <option>Country</option>
-        </Form.Select>
-        <Form.Control className="flex-shrink-3 w-25" type="tel" placeholder="Zip" />
-      </Form.Group>
-    </Form>
+        <Form.Group as={Col} sm={12} md={7} className="position-relative p-0">
+          <StyledFormControl type="tel" placeholder="Daytime Phone" isInvalid={true} />
+          <StyledFormFeedback type="invalid" tooltip>
+            Please enter daytime phone
+          </StyledFormFeedback>
+        </Form.Group>
+        <Col sm={12} md={4}>
+          <Form.Text className="ps-2">For delivery questions only</Form.Text>
+        </Col>
+
+        <Form.Group as={Row} className="gx-0 gy-2">
+          <Form.Label>Address</Form.Label>
+          <StyledFormControl type="text" placeholder="Street Address" />
+          <StyledFormControl
+            type="tel"
+            placeholder="Apt, Suite, Bldg, Gate Code,. (optional)"
+          />
+          <StyledFormControl type="tel" placeholder="City" />
+          <Row className="column-gap-3 gx-0 gy-2">
+            <Col sm={12} md={7}>
+              <Form.Select placeholder="Country">
+                <option>Some</option>
+                <option>Few</option>
+                <option>Country</option>
+              </Form.Select>
+            </Col>
+            <Col sm={12} md={4}>
+              <StyledFormControl type="tel" placeholder="Zip" />
+            </Col>
+          </Row>
+        </Form.Group>
+        <Button className="col-7" onClick={onNextStep}>
+          Continue
+        </Button>
+      </Form>
+    </>
   );
 }
