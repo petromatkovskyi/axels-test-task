@@ -5,7 +5,7 @@ export default function BillingInfo({ onNextStep }) {
   return (
     <>
       <h3 className="text-primary">Billing Information</h3>
-      <Form className="row gap-2 p-3">
+      <Form className="row gap-3 p-3">
         <Form.Label className="p-0 m-0">Billing Contact</Form.Label>
         <Form.Control type="text" placeholder="Full Name" />
         <Form.Control type="email" placeholder="Email Address" />
