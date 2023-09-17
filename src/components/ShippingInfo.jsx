@@ -1,15 +1,14 @@
-import { Col, Form, Row, Button, Tooltip } from 'react-bootstrap';
+import { Col, Form, Row, Button } from 'react-bootstrap';
 import StyledFormControl from './StyledFormControl';
 import StyledFormFeedback from './StyledFormFeedback';
-import TriggerExample from './TooltipExample';
 import { useRef, useState } from 'react';
 import Feedback from './Feedback';
+import StyledFormSelect from './StyledFormSelect';
 
 export default function ShippingInfo({ onNextStep }) {
   const [show, setShow] = useState(true);
   const [target, setTarget] = useState(null);
   const FullNameInput = useRef(null);
-  const ref = useRef(null);
 
   const handleClick = (event) => {
     // setShow(!show);
@@ -26,51 +25,70 @@ export default function ShippingInfo({ onNextStep }) {
         <Form.Group className="position-relative p-0">
           <Form.Label>Recipient</Form.Label>
 
-          <div ref={FullNameInput}>
-            <StyledFormControl
-              type="text"
-              placeholder="Full Name"
-              isInvalid={true}
-              onClick={handleClick}
-            />
-            <Feedback
+          <StyledFormControl
+            type="text"
+            placeholder="Full Name"
+            isInvalid={true}
+            onClick={handleClick}
+          />
+          <Feedback
+            title="Please enter recipient full name"
+            show={show}
+            target={target}
+            ref={FullNameInput}
+          />
+          <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+            Please enter recipient full name
+          </StyledFormFeedback>
+        </Form.Group>
+        <Form.Group as={Col} sm={12} md={7} className="position-relative p-0">
+          <StyledFormControl type="tel" placeholder="Daytime Phone" isInvalid={true} />
+          <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+            Please enter daytime phone
+          </StyledFormFeedback>
+          {/* <Feedback
               title="Please enter recipient full name"
               show={show}
               target={target}
               ref={FullNameInput}
-            />
-            {/* <StyledFormFeedback type="invalid" tooltip>
-              Please enter recipient full name
-            </StyledFormFeedback> */}
-          </div>
-        </Form.Group>
-        <Form.Group as={Col} sm={12} md={7} className="position-relative p-0">
-          <StyledFormControl type="tel" placeholder="Daytime Phone" isInvalid={true} />
-          <StyledFormFeedback type="invalid" tooltip>
-            Please enter daytime phone
-          </StyledFormFeedback>
+            /> */}
         </Form.Group>
         <Col sm={12} md={4}>
           <Form.Text className="ps-2">For delivery questions only</Form.Text>
         </Col>
         <Form.Group as={Row} className="gx-0 gy-2">
           <Form.Label>Address</Form.Label>
-          <StyledFormControl type="text" placeholder="Street Address" />
+
+          <StyledFormControl type="text" placeholder="Street Address" isInvalid={true} />
+          <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+            Please enter street address
+          </StyledFormFeedback>
+
           <StyledFormControl
             type="tel"
             placeholder="Apt, Suite, Bldg, Gate Code,. (optional)"
           />
-          <StyledFormControl type="tel" placeholder="City" />
+          <StyledFormControl type="tel" placeholder="City" isInvalid={true} />
+          <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+            Please enter city
+          </StyledFormFeedback>
+
           <Row className="column-gap-3 gx-0 gy-2">
             <Col sm={12} md={7}>
-              <Form.Select placeholder="Country">
+              <StyledFormSelect placeholder="Country" isInvalid={true}>
                 <option>Some</option>
                 <option>Few</option>
                 <option>Country</option>
-              </Form.Select>
+              </StyledFormSelect>
+              <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+                Please select country
+              </StyledFormFeedback>
             </Col>
             <Col sm={12} md={4}>
-              <StyledFormControl type="tel" placeholder="Zip" />
+              <StyledFormControl type="tel" placeholder="ZIP" isInvalid={true} />
+              <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+                Please enter ZIP
+              </StyledFormFeedback>
             </Col>
           </Row>
         </Form.Group>

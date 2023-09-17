@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <Container as="header" className="row border-bottom border-secondary" fluid>
       <Col>
-        <h4 href="#home" className="text-primary">
+        <h4 href="#home" className="text-primary text-center">
           Front-end Developer Test Task
         </h4>
       </Col>
