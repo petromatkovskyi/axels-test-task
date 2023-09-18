@@ -20,13 +20,13 @@ const validationSchema = Yup.object({
 });
 
 const initialValues = {
-  fullName: '',
-  daytimePhone: '',
-  streetAddress: '',
-  additionAddressInfo: '',
-  city: '',
-  country: '',
-  zip: '',
+  fullName: 'Петро Матковський',
+  daytimePhone: 907079,
+  streetAddress: 'qweqe',
+  additionAddressInfo: 'ljkgjgf',
+  city: 'zxc',
+  country: 'sdgfh',
+  zip: '453454',
 };
 
 export default function ShippingInfo({ onNextStep }) {
@@ -74,10 +74,11 @@ export default function ShippingInfo({ onNextStep }) {
                 target={target}
               /> */}
 
-              <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+              <StyledFormFeedback type="invalid" tooltip>
                 {errors.fullName}
               </StyledFormFeedback>
             </Form.Group>
+
             <Form.Group as={Col} sm={12} md={7} className="position-relative p-0">
               <StyledFormControl
                 type="tel"
@@ -87,7 +88,7 @@ export default function ShippingInfo({ onNextStep }) {
                 onChange={handleChange}
                 value={values.daytimePhone}
               />
-              <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+              <StyledFormFeedback type="invalid" tooltip>
                 {errors.daytimePhone}
               </StyledFormFeedback>
               {/* <Feedback
@@ -111,7 +112,7 @@ export default function ShippingInfo({ onNextStep }) {
                 onChange={handleChange}
                 value={values.streetAddress}
               />
-              <StyledFormFeedback type="invalid" tooltip className="position-static mt-1">
+              <StyledFormFeedback type="invalid" tooltip>
                 {errors.streetAddress}
               </StyledFormFeedback>
 
@@ -131,11 +132,7 @@ export default function ShippingInfo({ onNextStep }) {
                   onChange={handleChange}
                   value={values.city}
                 />
-                <StyledFormFeedback
-                  type="invalid"
-                  tooltip
-                  className="position-static mt-1"
-                >
+                <StyledFormFeedback type="invalid" tooltip>
                   {errors.city}
                 </StyledFormFeedback>
               </div>
@@ -153,11 +150,7 @@ export default function ShippingInfo({ onNextStep }) {
                     <option>Few</option>
                     <option>Country</option>
                   </StyledFormSelect>
-                  <StyledFormFeedback
-                    type="invalid"
-                    tooltip
-                    className="position-static mt-1"
-                  >
+                  <StyledFormFeedback type="invalid" tooltip>
                     {errors.country}
                   </StyledFormFeedback>
                 </Col>
@@ -171,17 +164,13 @@ export default function ShippingInfo({ onNextStep }) {
                     onChange={handleChange}
                     value={values.zip}
                   />
-                  <StyledFormFeedback
-                    type="invalid"
-                    tooltip
-                    className="position-static mt-1"
-                  >
+                  <StyledFormFeedback type="invalid" tooltip>
                     {errors.zip}
                   </StyledFormFeedback>
                 </Col>
               </Row>
             </Form.Group>
-            <Button className="col-7" type="submit" onClick={() => {}}>
+            <Button className="col-7" type="submit">
               Continue
             </Button>
           </Form>
